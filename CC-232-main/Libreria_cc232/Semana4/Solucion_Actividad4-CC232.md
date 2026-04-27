@@ -45,8 +45,38 @@ Resolver un problema busca encontrar una respuesta estática que cumple ciertas 
 Simular un proceso busca modelar la evolución de un sistema a lo largo del tiempo. El resultado es una traza del comportamiento dinámico del sistema. El objetivo es observar y analizar el comportamiento, a menudo con aleatoriedad, para entender el sistema.
 
 
+#### Bloque 2 - Demostración y trazado guiado
 
+| Archivo | Salida u observable importante | Estructura o técnica central | Qué concepto permite defender |
+| :--- | :--- | :--- | :--- |
+| `demo_stack_queue.cpp` | Orden inverso (Stack) vs Orden original (Queue) | Stack vs Queue | La naturaleza LIFO vs FIFO de los ADTs básicos. |
+| `demo_base_conversion.cpp` | El mismo número (ej. "1010") para ambos métodos | Pila explícita vs Recursión | La equivalencia entre algoritmos iterativos y recursivos. |
+| `demo_paren_rpn.cpp` | La cadena postfija (RPN) generada | Pilas y Precedencia | Cómo los operadores se ordenan según su prioridad jerárquica. |
+| `demo_nqueens.cpp` | Diferencia entre soluciones halladas y checks realizados | Backtracking iterativo | El alto costo computacional de la búsqueda exhaustiva. |
+| `demo_maze.cpp` | La lista de coordenadas del camino final | Pila de punteros a celdas | El uso de la pila para registrar una ruta exitosa. |
+| `demo_bank.cpp` | Longitud de colas en cada segundo `t` | Vector de colas (`Queue<Customer>`) | La distribución de carga en un sistema multicanal. |
+| `demo_capitulo4_panorama.cpp` | Resumen de ejecución de todas las utilidades | ADTs Lineales | La versatilidad de pilas y colas en diversas aplicaciones. |
 
+**1. En `demo_stack_queue.cpp`, ¿qué parte de la salida deja más clara la diferencia entre tope y frente?**
+La salida de desapilar (LIFO) muestra los elementos en orden inverso a su inserción, a diferencia de la cola.
+
+**2. En `demo_base_conversion.cpp`, ¿qué observable permite afirmar que las versiones recursiva e iterativa producen la misma representación?**
+El observable es que `toBaseRecursive` y `toBaseIterative` retornan la misma cadena para el mismo `n` y `base`.
+
+**3. En `demo_paren_rpn.cpp`, ¿qué relación observas entre paréntesis balanceados, RPN y valor final?**
+Se observa que las expresiones con paréntesis balanceados permiten generar una RPN que, al ser evaluada, da el valor matemático correcto.
+
+**4. En `demo_nqueens.cpp`, ¿qué significan `solutions` y `checks`, y por qué no miden lo mismo?**
+`solutions` cuenta configuraciones válidas; `checks` cuenta cada vez que se verifica si una reina ataca a otra. `checks` es mucho mayor debido a las pruebas fallidas.
+
+**5. En `demo_maze.cpp`, ¿qué muestra la secuencia de coordenadas sobre el camino encontrado?**
+Muestra la secuencia de pasos desde el inicio hasta el objetivo, omitiendo los caminos que resultaron en `BACKTRACKED`.
+
+**6. En `demo_bank.cpp`, ¿qué representa cada lista impresa en cada instante `t`?**
+Cada lista impresa representa el tiempo de atención restante de los clientes que están esperando en esa ventanilla específica en el tiempo `t`.
+
+**7. En `demo_capitulo4_panorama.cpp`, ¿qué salida resume mejor la idea de que una misma semana reúne estructuras y aplicaciones?**
+La salida que muestra el éxito de tareas tan distintas usando las mismas bases estructurales.
 
 
 
