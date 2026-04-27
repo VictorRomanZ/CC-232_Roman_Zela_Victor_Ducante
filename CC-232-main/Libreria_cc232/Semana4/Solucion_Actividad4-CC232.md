@@ -114,7 +114,50 @@ Las pruebas confirman que funciona para casos específicos; la explicación de i
 Por ejemplo, que el evaluador funcione para sumas y restas pero falle en potencias por no considerar la asociatividad a la derecha, algo que una prueba mínima podría no detectar.
 
 
+#### Bloque 4 - Comparación recursivo vs iterativo
 
+**1. En conversión de base, ¿qué papel juegan el cociente, el residuo y la pila?**
+El cociente reduce el número para la siguiente iteración; el residuo es el dígito de la nueva base; la pila invierte el orden de los residuos para formar el número correcto 
 
+**2. ¿Por qué los residuos se apilan antes de formar la cadena final?**
+Porque el primer residuo calculado es el dígito menos significativo, pero al escribir el número empezamos por el más significativo.
+
+**3. ¿Qué cambia entre dejar que el call stack haga el trabajo y manejar una pila explícita?**
+La pila explícita reside en el heap y su tamaño solo está limitado por la RAM total, mientras que el call stack es pequeño y limitado por el sistema operativo.
+
+**4. En `parenRecursive`, ¿qué idea intenta capturar `divideParentheses`?**
+Busca el punto donde se cierra el primer bloque de paréntesis abierto en `lo`, permitiendo dividir la cadena en sub-problemas independientes.
+
+**5. ¿Qué limitación conceptual tiene la versión recursiva mostrada frente a la iterativa cuando aparecen `[]` y `{}`?**
+La versión `parenRecursive` mostrada suele estar diseñada solo para un tipo de paréntesis `()`. La versión iterativa maneja fácilmente `[]` y `{}` usando la pila para recordar cuál fue el último abierto
+
+**6. En `parenIterative`, ¿por qué un cierre incorrecto puede detectarse apenas aparece?**
+Porque en el momento que aparece un cierre, este debe coincidir con el tope de la pila. Si no coincide, la cadena es inválida en ese mismo instante.
+
+**7. Compara ambas parejas de funciones: ¿en cuál caso la versión iterativa te parece más natural y en cuál la recursiva resulta más expresiva?**
+La iterativa es más natural para procesos lineales; la recursiva es más expresiva para estructuras jerárquicas como árboles o divisiones lógicas.
+
+##### Experimento 1
+
+| Número | Base | Salida recursiva | Salida iterativa | ¿Coinciden? | Comentario |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 10 | 2 | `1010` | `1010` | Sí | Conversión binaria estándar. |
+| 255 | 16 | `FF` | `FF` | Sí | Prueba de dígitos hexadecimales A-F. |
+| 64 | 8 | `100` | `100` | Sí | Caso de potencia exacta de la base. |
+| 123 | 10 | `123` | `123` | Sí | Identidad en base decimal. |
+| 42 | 3 | `1120` | `1120` | Sí | Prueba en base impar con múltiples dígitos. |
+
+##### Experimento 2
+
+| Caso | Expresión | Res. Recursivo | Res. Iterativo | ¿Coinciden? | Qué explica el caso |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Vacía | `""` | `true` | `true` | Sí | Caso base trivial. |
+| Sin paréntesis | `"abc"` | `true` | `true` | Sí | No hay símbolos que procesar. |
+| Anidada | `"(())"` | `true` | `true` | Sí | Estructura balanceada simple. |
+| Desbalance | `"(()"` | `false` | `false` | Sí | Falta un cierre al final. |
+| Cruce incorrecto | `"([)]"` | `false` | `false` | Sí | El cierre no corresponde a la última apertura. |
+| Múltiples tipos | `"{[()]}"` | `false` | `true` | No | La recursiva solo busca `()`; la iterativa es polivalente. |
+| Larga | `"((((()))))"` | `true` | `true` | Sí | Profundidad de anidamiento manejada correctamente. |
+| Inventada | `"()(())"` | `true` | `true` | Sí | Dos bloques independientes válidos. |
 
 
