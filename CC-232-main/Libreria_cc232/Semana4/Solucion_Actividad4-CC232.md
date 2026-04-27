@@ -78,10 +78,40 @@ Cada lista impresa representa el tiempo de atención restante de los clientes qu
 **7. En `demo_capitulo4_panorama.cpp`, ¿qué salida resume mejor la idea de que una misma semana reúne estructuras y aplicaciones?**
 La salida que muestra el éxito de tareas tan distintas usando las mismas bases estructurales.
 
+#### Bloque 3 - Pruebas públicas, pruebas internas y correctitud
 
+**1. ¿Qué operaciones mínimas valida la prueba pública para `Stack`?**
+`push`, `pop`, `top`, `empty` y `size`
 
+**2. ¿Qué operaciones mínimas valida la prueba pública para `Queue`?**
+`enqueue`, `dequeue`, `front`, `empty` y `size` 
 
+**3. ¿Qué valida la prueba pública sobre conversión de base?**
+Valida bases entre 2 y 16, manejo de caracteres 'A'-'F' y el caso especial del número 0.
 
+**4. ¿Qué valida la prueba pública sobre paréntesis balanceados?**
+Valida balanceo simple, anidamiento múltiple y detección de tipos de cierre incorrectos.
+
+**5. ¿Qué valida la prueba pública sobre evaluación de expresiones y RPN?**
+Valida precedencia, asociatividad, paréntesis y manejo de errores (división por cero).
+
+**6. ¿Qué valida la prueba pública sobre `NQueens`?**
+Valida que el número de soluciones para un `n` dado coincida con los resultados matemáticos conocidos.
+
+**7. ¿Qué valida la prueba pública sobre `Maze`?**
+Valida que encuentre un camino en laberintos simples y que reporte error si no hay salida.
+
+**8. ¿Qué valida la prueba pública sobre `bestWindow` en la simulación bancaria?**
+Valida que se elija la cola con el menor número de clientes (`size()`) en el momento del arribo
+
+**9. ¿Qué casos adicionales cubre la prueba interna y no aparecen de forma explícita en la pública?**
+Suelen cubrir casos de borde como estructuras vacías, valores máximos, o laberintos sin ningún espacio disponible.
+
+**10. ¿Por qué pasar pruebas no reemplaza una explicación de invariantes, estado y complejidad?**
+Las pruebas confirman que funciona para casos específicos; la explicación de invariantes asegura que el diseño es robusto para cualquier entrada válida.
+
+**11. Da un ejemplo de un error conceptual que podría sobrevivir si solo se ejecutaran los casos mínimos.**
+Por ejemplo, que el evaluador funcione para sumas y restas pero falle en potencias por no considerar la asociatividad a la derecha, algo que una prueba mínima podría no detectar.
 
 
 
