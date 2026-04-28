@@ -15,7 +15,10 @@
 ---
 
 ### Tema principal
+- Semana: Semana 3 y Semana 4
+- Estructura principal: `std::set<int>` — conjunto ordenado que mantiene las posiciones problemáticas de la cadena
 
+---
 
 ### Resumen de la solución
 
