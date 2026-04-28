@@ -15,3 +15,9 @@
 ---
 
 ### Tema principal
+
+
+### Resumen de la solución
+
+El problema pide determinar, tras cada flip de un carácter, si la cadena de paréntesis es "caminable": es decir, si existe alguna forma de recorrer la cadena, se puede mover libremente izquierda y derecha, tal que los caracteres escritos formen una secuencia de paréntesis válida.
+La idea clave es que, como el movimiento es libre, se puede escribir cualquier par de caracteres extra en cualquier punto. Esto lleva a la condición simple de que la cadena es caminable si y solo si su longitud es par, y el conjunto de posiciones malas, donde el carácter no coincide con lo esperado según su paridad, cumple que la primera posición mala es impar y la última es par.
