@@ -11,6 +11,21 @@ BracketWalk::BracketWalk(const std::string& cadena) {
     }
 }
 
+void BracketWalk::voltear(int i) {
+
+    if (s[i - 1] == '(') {
+        s[i - 1] = ')';
+    } else {
+        s[i - 1] = '(';
+    }
+
+    if (malas.count(i)) {
+        malas.erase(i);
+    } else {
+        malas.insert(i);
+    }
+}
+
 bool BracketWalk::es_caminable() const {
 
     if (n % 2 != 0) {
