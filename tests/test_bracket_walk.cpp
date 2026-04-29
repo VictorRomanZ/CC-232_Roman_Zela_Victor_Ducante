@@ -78,6 +78,9 @@ int main() {
     test_longitud_impar();
     test_cadena_perfecta();
     test_voltear();
+    test_primera_mala_par();
+    test_caso_contraintuitivo();
+    test_secuencia_queries();
     
     std::cout << "\n=== Resultado: "
               << aprobados << " aprobados, "
