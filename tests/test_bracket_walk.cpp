@@ -55,3 +55,19 @@ void test_voltear() {
     verificar(bw.es_caminable(), "tras restaurar pos1: caminable de nuevo");
 }
 
+void test_caso_contraintuitivo() {
+    std::cout << "\n[Test 5] Caso contraintuitivo: ')(' es caminable\n";
+    BracketWalk bw(")(");
+    verificar(bw.es_caminable(), ")( ES caminable");
+}
+
+
+
+
+
+
+
+
+
+
+
