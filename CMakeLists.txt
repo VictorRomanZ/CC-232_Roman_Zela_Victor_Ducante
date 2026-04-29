@@ -16,7 +16,10 @@ target_link_libraries(bracket_walk PRIVATE bw_lib)
 
 
 
-
+enable_testing()
+add_executable(tests tests/test_bracket_walk.cpp)
+target_link_libraries(tests PRIVATE bw_lib)
+add_test(NAME tests COMMAND tests)
 
 
 
