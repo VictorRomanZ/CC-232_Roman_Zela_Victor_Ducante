@@ -28,9 +28,30 @@ int main() {
 void test_longitud_impar() {
     std::cout << "\n[Test 1] Longitud impar -> siempre NO\n";
 
-    BracketWalk bw("(()");   // longitud 3, impar
+    BracketWalk bw("(()");   // Longitud 3 impar
     verificar(!bw.es_caminable(), "longitud 3: NO");
 
     bw.voltear(1);
     verificar(!bw.es_caminable(), "longitud 3 tras voltear: sigue NO");
 }
+
+void test_cadena_perfecta() {
+    std::cout << "\n[Test 2] Cadena perfecta\n";
+
+    BracketWalk bw("()()");
+    verificar(bw.es_caminable(), "()() es caminable");
+}
+
+void test_voltear() {
+    std::cout << "\n[Test 3] Voltear actualiza correctamente\n";
+
+    BracketWalk bw("()()");
+    verificar(bw.es_caminable(), "inicio: ()() caminable");
+
+    bw.voltear(1);
+    verificar(!bw.es_caminable(), "tras voltear pos1: NO caminable");
+
+    bw.voltear(1);
+    verificar(bw.es_caminable(), "tras restaurar pos1: caminable de nuevo");
+}
+
