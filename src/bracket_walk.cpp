@@ -11,6 +11,29 @@ BracketWalk::BracketWalk(const std::string& cadena) {
     }
 }
 
+bool BracketWalk::es_caminable() const {
+
+    if (n % 2 != 0) {
+        return false;
+    }
+
+    if (malas.empty()) {
+        return true;
+    }
+
+    int primera = *malas.begin();  
+    int ultima  = *malas.rbegin();  
+
+    if (primera % 2 == 0) {
+        return false;
+    }
+
+    if (ultima % 2 != 0) {
+        return false;
+    }
+
+    return true;
+}
 
 bool BracketWalk::es_mala(int i) const {
 
