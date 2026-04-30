@@ -17,6 +17,9 @@ target_link_libraries(bracket_walk PRIVATE bw_lib)
 add_executable(demo demos/demo_trazas.cpp)
 target_link_libraries(demo PRIVATE bw_lib)
 
+add_executable(benchmark benchmark/benchmark.cpp)
+target_link_libraries(benchmark PRIVATE bw_lib)
+
 enable_testing()
 add_executable(tests tests/test_bracket_walk.cpp)
 target_link_libraries(tests PRIVATE bw_lib)
