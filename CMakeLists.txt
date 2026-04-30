@@ -14,7 +14,8 @@ target_include_directories(bw_lib PUBLIC include)
 add_executable(bracket_walk src/main.cpp)
 target_link_libraries(bracket_walk PRIVATE bw_lib)
 
-
+add_executable(demo demos/demo_trazas.cpp)
+target_link_libraries(demo PRIVATE bw_lib)
 
 enable_testing()
 add_executable(tests tests/test_bracket_walk.cpp)
