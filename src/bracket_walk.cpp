@@ -39,11 +39,11 @@ bool BracketWalk::es_caminable() const {
     int primera = *malas.begin();  
     int ultima  = *malas.rbegin();  
 
-    if (primera % 2 == 0) {
+    if (primera % 2 != 0) {
         return false;
     }
 
-    if (ultima % 2 != 0) {
+    if (ultima % 2 == 0) {
         return false;
     }
 
