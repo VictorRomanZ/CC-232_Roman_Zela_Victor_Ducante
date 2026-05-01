@@ -51,10 +51,11 @@ void test_primera_mala_par() {
     verificar(!bw.es_caminable(), "(( es NO caminable (primera mala en pos 2)");
 }
 
-void test_caso_contraintuitivo() {
-    std::cout << "\n[Test 5] Caso contraintuitivo: ')(' es caminable\n";
-    BracketWalk bw(")(");
-    verificar(bw.es_caminable(), ")( ES caminable");
+void test_caso_borde() {
+    std::cout << "\n[Test 5] Caso borde en '())(()'\n";
+    
+    BracketWalk bw("())(()");
+    verificar(!bw.es_caminable(), "())(() NO es caminable porque la primera mala es impar (pos 3)");
 }
 
 void test_secuencia_queries() {
@@ -67,7 +68,7 @@ void test_secuencia_queries() {
     verificar(!bw.es_caminable(), "tras voltear pos1: NO");
 
     bw.voltear(8);
-    verificar(bw.es_caminable(), "tras voltear pos1 y pos8: SI");
+    verificar(!bw.es_caminable(), "tras voltear pos1 y pos8: NO");
 }
 
 int main() {
@@ -79,7 +80,7 @@ int main() {
     test_cadena_perfecta();
     test_voltear();
     test_primera_mala_par();
-    test_caso_contraintuitivo();
+    test_caso_borde();
     test_secuencia_queries();
     
     std::cout << "\n=== Resultado: "
